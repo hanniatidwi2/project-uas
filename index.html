@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luxe Billiards | Reservation & Cafe</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app-container">
+        <!-- Decoration -->
+        <div class="glow-bg"></div>
+
+        <!-- Navbar -->
+        <nav class="glass-panel navbar">
+            <div class="logo">
+                <span class="neon-text">🎱 LUXE</span> BILLIARDS
+            </div>
+            <div class="nav-links">
+                <button class="nav-btn active" onclick="switchTab('booking')">Reserve</button>
+                <button class="nav-btn" onclick="switchTab('cafe')">Cafe Menu</button>
+                <button class="nav-btn admin-nav-btn" onclick="switchTab('admin')">Admin</button>
+            </div>
+        </nav>
+
+        <!-- Main Content -->
+        <main id="main-content">
+            <!-- Welcome Section -->
+            <section id="welcome-section" class="active-section">
+                <div class="welcome-hero glass-panel">
+                    <div class="hero-content-wrapper">
+                        <div class="hero-text">
+                            <h1 class="hero-title">Welcome to <span class="neon-text">LUXE</span></h1>
+                            <p class="hero-subtitle">Premium Billiard & Lounge Experience</p>
+                            <button class="btn-primary hero-btn" onclick="switchTab('booking')">Book Now</button>
+                        </div>
+
+                        <div class="hero-contact-side">
+                            <div class="contact-card glass-panel">
+                                <h3>Contact Us</h3>
+                                <div class="contact-item">
+                                    <span class="icon">📞</span>
+                                    <span>+62 812-3456-7890</span>
+                                </div>
+                                <div class="social-links-vertical">
+                                    <a href="#" class="social-btn">
+                                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                            <path
+                                                d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z" />
+                                        </svg>
+                                        IG: @luxe.billiards
+                                    </a>
+                                    <a href="#" class="social-btn">
+                                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                            <path
+                                                d="M9 8h-3v4h3v12h5v-12h3.642l.358-4h-4v-1.667c0-.955.192-1.333 1.115-1.333h2.885v-5h-3.808c-3.596 0-5.192 1.583-5.192 4.615v3.385z" />
+                                        </svg>
+                                        FB: Luxe Billiards
+                                    </a>
+                                    <a href="#" class="social-btn">
+                                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
+                                            <path
+                                                d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.506-.669-.516-.173-.009-.371-.009-.57-.009-.198 0-.52.074-.792.372-.272.297-1.04 1.017-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
+                                        </svg>
+                                        WA: +62 812-3456-7890
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Booking Section -->
+            <section id="booking-section" class="hidden-section">
+                <!-- Booking Card -->
+                <div class="glass-panel hero-card" id="booking-form-card">
+                    <h2>Book Your Table</h2>
+                    <p class="subtitle">Experience premium billiards with automated time tracking.</p>
+
+                    <div class="form-group">
+                        <label>Select Table</label>
+                        <div class="table-type-tabs">
+                            <button class="type-tab active" onclick="switchTableType('regular')">Regular Area</button>
+                            <button class="type-tab" onclick="switchTableType('vip')">VIP Rooms</button>
+                        </div>
+                        <div class="table-grid" id="table-grid">
+                            <!-- Tables injected by JS -->
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Duration <span class="price-rate">(Rp 50k Regular / Rp 70k VIP)</span></label>
+                        <div class="duration-options">
+                            <button id="duration-5" class="duration-btn" onclick="selectDuration(5)">5 Mins (Rp
+                                5k)</button>
+                            <button id="duration-60" class="duration-btn selected" onclick="selectDuration(60)">1 Hr (Rp
+                                50k)</button>
+                            <button id="duration-90" class="duration-btn" onclick="selectDuration(90)">1.5 Hrs (Rp
+                                75k)</button>
+                            <button id="duration-120" class="duration-btn" onclick="selectDuration(120)">2 Hrs (Rp
+                                100k)</button>
+                        </div>
+                    </div>
+
+                    <button class="btn-primary checkout-btn" onclick="placeOrder()">Checkout & Pay</button>
+                </div>
+
+                <!-- Active Sessions List -->
+                <div id="active-sessions-list" class="sessions-container">
+                    <!-- Dynamic Session Cards Injected here -->
+                </div>
+            </section>
+
+            <!-- Cafe Section -->
+            <section id="cafe-section" class="hidden-section">
+                <div class="cafe-layout">
+                    <div class="menu-list glass-panel">
+                        <h2>Cafe Menu</h2>
+                        <div class="menu-categories">
+                            <button class="cat-btn active" onclick="switchCategory('Drinks')">Drinks</button>
+                            <button class="cat-btn" onclick="switchCategory('Snacks')">Snacks</button>
+                        </div>
+                        <div class="menu-grid" id="menu-grid">
+                            <!-- Menu Items injected by JS -->
+                        </div>
+                    </div>
+
+                    <div class="cart-panel glass-panel">
+                        <h3>Your Order</h3>
+                        <div class="cart-items" id="cart-items">
+                            <p class="empty-cart">Cart is empty</p>
+                        </div>
+
+                        <div class="form-group cafe-table-group">
+                            <label>Table Number</label>
+                            <div class="cafe-table-selection" id="cafe-table-selection">
+                                <!-- Reusing table selection logic or adding a simple selector -->
+                                <select id="cafe-table-id" class="glass-select"
+                                    onchange="syncTableSelection(this.value)">
+                                    <option value="">- Select Table -</option>
+                                    <option value="1">Table 1</option>
+                                    <option value="2">Table 2</option>
+                                    <option value="3">Table 3</option>
+                                    <option value="4">Table 4</option>
+                                    <option value="5">Table 5</option>
+                                    <option value="6">Table 6</option>
+                                    <option value="7">Table 7</option>
+                                    <option value="8">Table 8</option>
+                                    <option value="9">Table 9</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="cart-total">
+                            <span>Total:</span>
+                            <span class="price" id="cart-total">$0</span>
+                        </div>
+                        <button class="btn-primary" onclick="placeOrder()">Checkout Payment</button>
+                    </div>
+                </div>
+            </section>
+            <!-- Payment Modal -->
+            <div id="payment-modal" class="modal hidden">
+                <div class="modal-content glass-panel">
+                    <span class="close-modal" onclick="closePaymentMode()">&times;</span>
+                    <h2>Payment Summary</h2>
+
+                    <div class="bill-details">
+                        <div class="bill-section" id="bill-billiard">
+                            <!-- Injected by JS -->
+                        </div>
+                        <div class="bill-section" id="bill-cafe">
+                            <!-- Injected by JS -->
+                        </div>
+                        <div class="bill-total-row">
+                            <span>Grand Total</span>
+                            <span class="grand-total" id="grand-total">Rp 0</span>
+                        </div>
+                    </div>
+
+                    <div class="payment-methods">
+                        <h3>Select Payment Method</h3>
+                        <div class="method-tabs">
+                            <button class="method-btn active" onclick="switchPayment('transfer')">Bank Transfer</button>
+                            <button class="method-btn" onclick="switchPayment('qris')">QRIS / Scan</button>
+                        </div>
+
+                        <div id="method-transfer" class="method-content">
+                            <div class="bank-card">
+                                <div class="bank-logo">BCA</div>
+                                <div class="bank-details">
+                                    <p class="account-number">123 456 7890</p>
+                                    <p class="account-name">Luxe Billiards</p>
+                                </div>
+                                <button class="copy-btn" onclick="copyToClipboard('1234567890')">Copy</button>
+                            </div>
+                        </div>
+
+                        <div id="method-qris" class="method-content hidden">
+                            <div class="qris-container">
+                                <img src="qris_code.svg" alt="Scan QRIS" class="qris-code">
+                                <p>Scan to Pay</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="btn-primary pay-btn" onclick="processPayment()">Confirm Payment</button>
+                </div>
+            </div>
+
+            <!-- Success Modal -->
+            <div id="success-modal" class="modal hidden">
+                <div class="modal-content glass-panel status-modal">
+                    <div class="success-icon">
+                        <svg viewBox="0 0 52 52">
+                            <circle class="checkmark-circle" cx="26" cy="26" r="25" fill="none" />
+                            <path class="checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+                        </svg>
+                    </div>
+                    <h2 class="neon-text">Payment Successful!</h2>
+                    <p id="success-message">Your table is ready. Enjoy your game!</p>
+                    <div class="order-summary-box glass-panel">
+                        <div class="summary-row">
+                            <span>Table</span>
+                            <span id="success-table">-</span>
+                        </div>
+                        <div class="summary-row">
+                            <span>Total Paid</span>
+                            <span id="success-total">Rp 0</span>
+                        </div>
+                    </div>
+                    <button id="success-btn" class="btn-primary" onclick="closeSuccessModal()">Start Playing
+                        Now</button>
+                </div>
+            </div>
+
+            <!-- Time's Up Modal -->
+            <div id="times-up-modal" class="modal hidden">
+                <div class="modal-content glass-panel status-modal expired-modal">
+                    <div class="alert-icon">
+                        <div class="pumping-circle"></div>
+                        <span class="icon-text">⌛</span>
+                    </div>
+                    <h2 class="danger-text">TABLE <span id="ended-table-id">X</span> SESSION FINISHED!</h2>
+                    <p>Your playing time has ended. We hope you enjoyed the experience!</p>
+                    <div class="summary-info">
+                        <p>Please clear the table for the next player.</p>
+                    </div>
+                    <button class="btn-primary" onclick="closeTimesUpModal()">Back to Home</button>
+                </div>
+            </div>
+            <!-- Upgrade Modal -->
+            <div id="upgrade-modal" class="modal hidden">
+                <div class="modal-content glass-panel">
+                    <div class="modal-header">
+                        <h2>✨ Upgrade to VIP Room</h2>
+                        <button class="close-btn" onclick="closeUpgradeModal()">&times;</button>
+                    </div>
+                    <div class="upgrade-info">
+                        <p>Elevate your experience with our premium VIP Rooms.</p>
+                        <div class="upgrade-calculation">
+                            <div class="calc-row">
+                                <span>Remaining Time:</span>
+                                <span id="upgrade-remaining">0 mins</span>
+                            </div>
+                            <div class="calc-row">
+                                <span>Upgrade Fee:</span>
+                                <span id="upgrade-cost" class="primary-text">Rp 0</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vip-selection">
+                        <h3>Select Available VIP Room:</h3>
+                        <div id="vip-room-list" class="vip-grid-mini">
+                            <!-- Available VIP rooms will be injected here -->
+                        </div>
+                    </div>
+                    <button id="confirm-upgrade-btn" class="btn-primary" disabled onclick="handleUpgradePayment()">
+                        Confirm & Pay Upgrade
+                    </button>
+                    <p class="upgrade-footer">Pro-rated fee calculated based on remaining session time.</p>
+                </div>
+            </div>
+
+            <!-- Admin Section -->
+            <section id="admin-section" class="hidden-section">
+                <div class="admin-layout glass-panel">
+                    <div class="admin-header">
+                        <h2>Admin Management</h2>
+                        <div class="admin-tabs">
+                            <button class="admin-tab-btn active" data-tab="inventory"
+                                onclick="switchAdminTab('inventory')">Inventory</button>
+                            <button class="admin-tab-btn" data-tab="reports" onclick="switchAdminTab('reports')">Revenue
+                                Reports</button>
+                        </div>
+                    </div>
+
+                    <div id="inventory-view">
+                        <div class="admin-grid">
+                            <div class="stock-management">
+                                <h3>Inventory Control</h3>
+                                <div id="admin-stock-list" class="admin-list">
+                                    <!-- Stock items injected by JS -->
+                                </div>
+                            </div>
+
+                            <div class="add-item-form">
+                                <h3>Add New Menu Item</h3>
+                                <form id="new-item-form" onsubmit="addNewItem(event)">
+                                    <div class="form-group">
+                                        <label>Item Name</label>
+                                        <input type="text" id="new-item-name" class="glass-input" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Price (Rp)</label>
+                                        <input type="number" id="new-item-price" class="glass-input" required>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Category</label>
+                                        <select id="new-item-category" class="glass-select">
+                                            <option value="Drinks">Drinks</option>
+                                            <option value="Snacks">Snacks</option>
+                                        </select>
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Initial Stock</label>
+                                        <input type="number" id="new-item-stock" class="glass-input" value="10"
+                                            required>
+                                    </div>
+                                    <button type="submit" class="btn-primary">Add to Menu</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div id="reports-view" class="hidden-section">
+                        <div class="revenue-summary">
+                            <div class="revenue-card">
+                                <span>Total Revenue</span>
+                                <h3 id="total-revenue-value">Rp 0</h3>
+                            </div>
+                        </div>
+                        <div class="transaction-log">
+                            <h3>Transaction History</h3>
+                            <div class="table-container">
+                                <table class="admin-table">
+                                    <thead>
+                                        <tr>
+                                            <th>Date/Time</th>
+                                            <th>Details</th>
+                                            <th>Amount</th>
+                                            <th>Status</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="transaction-log-body">
+                                        <!-- Transactions injected by JS -->
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Audio for Timer -->
+    <audio id="alarm-sound" src="https://assets.mixkit.co/active_storage/sfx/2869/2869-preview.mp3"></audio>
+    <audio id="success-chime" src="https://assets.mixkit.co/active_storage/sfx/2019/2019-preview.mp3"></audio>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
